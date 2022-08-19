@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const PostCreate = () => {
+const PostCreate = ({ reFresh, isReFresh }) => {
   const [title, setTitle] = useState("");
 
   const onSubmit = async (event) => {
@@ -11,6 +11,7 @@ const PostCreate = () => {
       title,
     });
 
+    reFresh(!isReFresh);
     setTitle("");
   };
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 
-const PostList = () => {
+const PostList = ({ reFresh }) => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
@@ -14,7 +14,7 @@ const PostList = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [reFresh]);
 
   const renderedPosts = Object.values(posts).map((post) => {
     return (
